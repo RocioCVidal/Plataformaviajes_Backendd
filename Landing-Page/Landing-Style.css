@@ -1,0 +1,228 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Definimos el estilo para la barra de navegación */
+.navbar {
+    
+    background-color: #ffffff; /* Color de fondo de la barra de navegación. Ajusta según necesidad. */
+    padding: 5px 30px; /* Espaciado interno en la barra de navegación. */
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo del logo y del texto del logo */
+.navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex: 1; /* Añadido para tomar todo el espacio posible */
+    text-decoration: none;
+}
+
+
+.viajaMundo {
+    margin: 0; /* Quitamos margen para el título */
+    color: #1F2D60; /* Color del texto del título. Ajusta según necesidad. */
+    font-size: 2em; /* Tamaño de la fuente del título */
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px 20px;
+    border: 3px solid #1F2D60; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #1F2D60; /* Texto azul */
+    margin-left: 10px; /* Espaciado entre los botones */
+    cursor: pointer; /* El puntero se convierte en mano al pasar sobre el botón */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al pasar el ratón */
+    outline: none; /* Remueve el borde alrededor del botón cuando es seleccionado */
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+button:hover {
+    background-color: #1F2D60; /* Al pasar el ratón, fondo azul */
+    color: #ffffff; /* Al pasar el ratón, texto blanco */
+}
+
+.viajaMundo {
+    margin: 0;
+    font-size: 2em;
+    display: inline-block;  /* Para que los spans se comporten de forma in-line */
+}
+
+.viaja {
+    color: #1F2D60;  /* Color oscuro (puedes ajustar al valor exacto que necesites) */
+    font-weight: bold;  /* Texto en negrita */
+
+}
+
+.mundo {
+    color: #96C8E4;  /* Color azul (puedes ajustar al valor exacto que necesites) */
+    font-weight: bold;  /* Texto de peso ligero */
+}
+
+
+
+
+/*--------------------------------Segunda parte------------------------------------------*/
+
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Esto crea un fondo blanco con transparencia */
+    padding: 40px;  /* Aumentamos el relleno para hacer el cuadro más grande */
+    text-align: center;
+    max-width: 80%;  /* Ajuste de ancho máximo para garantizar un buen aspecto en pantallas grandes */
+  }
+  
+  .hero-text h1 {
+    margin: 0;
+    font-size: 2.5em;  /* Aumentamos el tamaño de la fuente del título */
+    color: #ffffff;
+  }
+  
+  .hero-text p {
+    margin: 20px 0 0;  /* Aumentamos el margen superior para dar más espacio entre el título y el párrafo */
+    font-size: 1.5em;  /* Aumentamos el tamaño de la fuente del párrafo */
+    color: #ffffff;
+  }
+
+
+  /* -----------------------------------------------------------------------------*/
+
+  .viajamundo-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    width: 1136px;
+    overflow: hidden;
+    background-image: url('ruta-de-la-imagen-de-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-right: 25%; /* Reserva espacio a la derecha para el texto */
+}
+
+.viajamundo-description {
+    position: absolute;
+    top: 50%;
+    right: 5%; /* Ajusta la posición horizontal del texto */
+    transform: translateY(-50%); /* Centra el texto verticalmente */
+    color: white;
+    font-size: 20px;
+    max-width: 35%; /* Ajusta el ancho del contenedor del texto */
+    line-height: 1.5;
+}
+
+.viajamundo-description blockquote {
+    quotes: "“" "”";
+    font-style: italic;
+}
+
+.viajamundo-description blockquote:before {
+    content: open-quote;
+}
+
+.viajamundo-description blockquote:after {
+    content: close-quote;
+}
+
+  /* ---------------------------------------------------------------------------*/
+
+  .feature-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27%;
+    text-align: center;
+}
+
+.feature img {
+    width: 80%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.feature p{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+  /*--------------------------------FOoter---------------------------------------*/
+
+  footer {
+    background-color: #1A1F32; /* Color de fondo azul oscuro */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Padding lateral */
+  }
+  
+  .footer-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-left img {
+    width: 100px; /* Ajusta según el tamaño deseado para el logo */
+    margin-right: 15px; /* Espacio a la derecha del logo */
+  }
+  
+  .footer-left-text p {
+    margin: 0;
+    margin-bottom: 5px; /* Espacio entre los dos párrafos */
+  }
+  .social-icons {
+    display: flex;
+    gap: 10px; /* Espacio entre los íconos */
+  }
+  
+  .social-icons a img {
+    width: 40px; /* Ajusta según el tamaño deseado para los íconos */
+    transition: 0.3s; /* Efecto de transición al pasar el ratón */
+  }
+  
+  .social-icons a:hover img {
+    transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+  }
+  
