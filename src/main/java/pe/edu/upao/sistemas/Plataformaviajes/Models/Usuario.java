@@ -10,14 +10,13 @@ import java.util.Date;
 @Entity
 @Data
 @AllArgsConstructor
-
 @Table (name = "usuario")
 
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idUsuario;
 
     @Column (nullable = false)
     private String nombre;
