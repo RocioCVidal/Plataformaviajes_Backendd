@@ -35,6 +35,10 @@ public class UsuarioServices {
         return Optional.empty();
     }
 
+    public Optional<Usuario> obtenerUsuarioPorCorreo(String correo) {
+        return usuarioRepository.findByCorreo(correo);
+    }
+
     public Usuario registrarUsuario(SignUpDTO signUpDTO) {
 
         // Verificar si ya existe un usuario con el mismo correo
@@ -63,7 +67,9 @@ public class UsuarioServices {
 
         usuario.setTipoViajero(Usuario.TipoViajero.valueOf(signUpDTO.getTipoViajero()));
         usuario.setFotoPerfilUrl(signUpDTO.getFotoPerfilUrl());
-        // Configurar los campos opcionales como las redes sociales si están presentes en el DTO
+        usuario.setUrlFacebook(signUpDTO.getUrlFacebook());
+        usuario.setUrlInstagram(signUpDTO.getUrlInstagram());
+        usuario.setUrlTwiter(signUpDTO.getUrlTwiter());
 
         // Guardar el usuario en la base de datos
         return usuarioRepository.save(usuario);

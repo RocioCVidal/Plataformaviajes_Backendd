@@ -1,5 +1,6 @@
 package pe.edu.upao.sistemas.Plataformaviajes.Controller;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,7 @@ public class AuthController {
         return resultadoValidacion.<ResponseEntity<?>>map(s -> ResponseEntity.badRequest().body(s)).orElseGet(() -> ResponseEntity.ok("Inicio de sesión exitoso"));
 
     }
+
 
     @PostMapping("/registrar")
     public ResponseEntity<?> crearUsuario(@Valid @RequestBody SignUpDTO signUpDTO) {
