@@ -31,7 +31,7 @@ public class Usuario {
 
     @Temporal(TemporalType.DATE)
     @Column (nullable = false)
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
 
     private String descripcion;
 
@@ -42,8 +42,16 @@ public class Usuario {
     @Column (nullable = false)
     private String contrasena;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paisOrigen_codigo", nullable = false)
+    private Pais paisOrigen;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paisVive_codigo", nullable = false)
+    private Pais paisVive;
+
     @Enumerated(EnumType.STRING)
-    private TipoViajero tipo_viajero;
+    private TipoViajero tipoViajero;
 
     private String fotoPerfilUrl;
 
