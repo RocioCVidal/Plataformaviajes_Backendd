@@ -8,6 +8,10 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 
 
+<<<<<<< HEAD
+=======
+import java.time.LocalDate;
+>>>>>>> feature/Crear
 import java.util.Date;
 
 @Data
@@ -25,7 +29,11 @@ public class SignUpDTO {
     private String Sexo;
 
     @Past(message = "La fecha de nacimiento debe ser en el pasado")
+<<<<<<< HEAD
     private Date fechaNacimiento;
+=======
+    private LocalDate fechaNacimiento;
+>>>>>>> feature/Crear
 
     @NotBlank(message = "El país de origen no puede estar vacío")
     private String paisOrigen;
