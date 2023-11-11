@@ -1,6 +1,7 @@
 package pe.edu.upao.sistemas.Plataformaviajes.Services;
 
 import pe.edu.upao.sistemas.Plataformaviajes.DTO.SignUpDTO;
+import pe.edu.upao.sistemas.Plataformaviajes.Exception.ContrasenaInconrrectaException;
 import pe.edu.upao.sistemas.Plataformaviajes.Exception.EntidadNoEncontradaException;
 import pe.edu.upao.sistemas.Plataformaviajes.Exception.UsuarioYaExisteException;
 import pe.edu.upao.sistemas.Plataformaviajes.Models.Pais;
@@ -26,11 +27,11 @@ public class UsuarioServices {
     public Optional<String> validarUsuario(String correo, String contrasena) {
         Optional<Usuario> usuarioOptional = usuarioRepository.findByCorreo(correo);
         if (usuarioOptional.isEmpty()) {
-            return Optional.of("Correo no encontrado.");
+            throw new EntidadNoEncontradaException("Correo no encontrado.");
         }
         Usuario usuario = usuarioOptional.get();
         if (!usuario.getContrasena().equals(contrasena)) {
-            return Optional.of("Contraseña incorrecta.");
+            throw new ContrasenaInconrrectaException("El correo indicado ya está registrado");
         }
         return Optional.empty();
     }

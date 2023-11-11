@@ -2,6 +2,7 @@ package pe.edu.upao.sistemas.Plataformaviajes.Services;
 
 import org.springframework.stereotype.Service;
 import pe.edu.upao.sistemas.Plataformaviajes.DTO.PublicacionDTO;
+import pe.edu.upao.sistemas.Plataformaviajes.Exception.EntidadNoEncontradaException;
 import pe.edu.upao.sistemas.Plataformaviajes.Models.*;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.ItinerarioRepository;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.LugarRepository;
@@ -33,7 +34,7 @@ public class ItinerarioServices {
         itinerario.setDescripcion(publicacionDTO.getDescripcion());
 
         Usuario usuario = usuarioRepository.findById(publicacionDTO.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new EntidadNoEncontradaException("Usuario no encontrado"));
         itinerario.setUsuario(usuario);
 
         Lugar lugar = lugarRepository.findByNombre(publicacionDTO.getLugar())
@@ -45,7 +46,7 @@ public class ItinerarioServices {
         itinerario.setLugar(lugar);
 
         Pais pais = paisRepository.findByNombreIgnoreCase(publicacionDTO.getNombrePais())
-                .orElseThrow(() -> new RuntimeException("Pais no encontrado"));
+                .orElseThrow(() -> new EntidadNoEncontradaException("Pais no encontrado"));
         itinerario.setPais(pais);
 
         itinerario.setDuracion(publicacionDTO.getDuracion());

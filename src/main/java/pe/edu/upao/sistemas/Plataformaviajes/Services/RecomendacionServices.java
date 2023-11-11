@@ -29,7 +29,7 @@ public class RecomendacionServices {
         recomendacion.setDescripcion(publicacionDTO.getDescripcion());
 
         Usuario usuario = usuarioRepository.findById(publicacionDTO.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+                .orElseThrow(() -> new EntidadNoEncontradaException("Usuario no encontrado"));
         recomendacion.setUsuario(usuario);
 
         Lugar lugar = lugarRepository.findByNombre(publicacionDTO.getLugar())
@@ -41,7 +41,7 @@ public class RecomendacionServices {
         recomendacion.setLugar(lugar);
 
        Pais pais = paisRepository.findByNombreIgnoreCase(publicacionDTO.getNombrePais())
-               .orElseThrow(() -> new RuntimeException("No hay el pais"));
+               .orElseThrow(() -> new EntidadNoEncontradaException("No hay el pais"));
        recomendacion.setPais(pais);
 
         return recomendacionRepository.save(recomendacion);
