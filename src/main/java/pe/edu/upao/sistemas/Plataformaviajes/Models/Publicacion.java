@@ -22,7 +22,10 @@ public abstract class Publicacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @Column(name = "tipo", nullable = false)
+=======
+>>>>>>> c94374219f62287bbcd8cc8f74aeef24c0c2faf7
     private String tipo;
 
     private String titulo;

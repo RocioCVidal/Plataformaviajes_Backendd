@@ -6,6 +6,7 @@ import jakarta.persistence.Table;
 @Table(name = "recomendacion")
 @Entity
 public class Recomendacion extends Publicacion{
+<<<<<<< HEAD
 
     public Recomendacion() {
         super();
@@ -16,3 +17,6 @@ public class Recomendacion extends Publicacion{
 
 
 
+=======
+}
+>>>>>>> c94374219f62287bbcd8cc8f74aeef24c0c2faf7

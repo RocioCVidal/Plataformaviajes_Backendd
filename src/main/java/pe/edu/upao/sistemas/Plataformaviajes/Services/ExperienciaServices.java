@@ -2,6 +2,10 @@ package pe.edu.upao.sistemas.Plataformaviajes.Services;
 
 import org.springframework.stereotype.Service;
 import pe.edu.upao.sistemas.Plataformaviajes.DTO.PublicacionDTO;
+<<<<<<< HEAD
+=======
+import pe.edu.upao.sistemas.Plataformaviajes.Exception.EntidadNoEncontradaException;
+>>>>>>> c94374219f62287bbcd8cc8f74aeef24c0c2faf7
 import pe.edu.upao.sistemas.Plataformaviajes.Models.*;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.ExperienciaRepository;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.LugarRepository;
@@ -32,12 +36,21 @@ public class ExperienciaServices {
 
     public Experiencia crearDesdeDTO(PublicacionDTO publicacionDTO){
         Experiencia experiencia = new Experiencia();
+<<<<<<< HEAD
         experiencia.setTitulo(publicacionDTO.getTitulo());
         experiencia.setTipo(publicacionDTO.getTipo());
         experiencia.setDescripcion(publicacionDTO.getDescripcion());
 
         Usuario usuario = usuarioRepository.findById(publicacionDTO.getUsuarioId())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+=======
+        experiencia.setTipo(publicacionDTO.getTipo());
+        experiencia.setTitulo(publicacionDTO.getTitulo());
+        experiencia.setDescripcion(publicacionDTO.getDescripcion());
+
+        Usuario usuario = usuarioRepository.findById(publicacionDTO.getUsuarioId())
+                .orElseThrow(() -> new EntidadNoEncontradaException("Usuario no encontrado"));
+>>>>>>> c94374219f62287bbcd8cc8f74aeef24c0c2faf7
         experiencia.setUsuario(usuario);
 
         Lugar lugar = lugarRepository.findByNombre(publicacionDTO.getLugar())
@@ -49,7 +62,11 @@ public class ExperienciaServices {
         experiencia.setLugar(lugar);
 
         Pais pais = paisRepository.findByNombreIgnoreCase(publicacionDTO.getNombrePais())
+<<<<<<< HEAD
                 .orElseThrow(() -> new RuntimeException("Pais no encontrado"));
+=======
+                .orElseThrow(() -> new EntidadNoEncontradaException("Pais no encontrado"));
+>>>>>>> c94374219f62287bbcd8cc8f74aeef24c0c2faf7
         experiencia.setPais(pais);
 
         List<Imagen> imagenes = publicacionDTO.getUrlsImagenes().stream()
