@@ -55,10 +55,10 @@ public class UsuarioServices {
         usuario.setCorreo(signUpDTO.getCorreo());
         usuario.setContrasena(signUpDTO.getContrasena());
 
-        Pais paisOrigen = paisRepository.findByNombreIgnoreCase(signUpDTO.getPaisOrigen())
+        Pais paisOrigen = paisRepository.findByNombreIgnoreCase((signUpDTO.getPaisOrigen()))
                 .orElseThrow(() -> new EntidadNoEncontradaException("País de origen no encontrado"));
 
-        Pais paisVive = paisRepository.findByNombreIgnoreCase(signUpDTO.getPaisVive())
+        Pais paisVive = paisRepository.findByNombreIgnoreCase((signUpDTO.getPaisVive()))
                 .orElseThrow(() -> new EntidadNoEncontradaException("País de residencia no encontrado"));
 
         usuario.setPaisOrigen(paisOrigen);

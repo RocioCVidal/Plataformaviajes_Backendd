@@ -6,7 +6,8 @@ import pe.edu.upao.sistemas.Plataformaviajes.Models.Pais;
 import java.util.Optional;
 
 @Repository
-public interface PaisRepository extends JpaRepository<Pais, Long> {
+public interface PaisRepository extends JpaRepository<Pais, String> {
+        Optional<Pais> findBycodigo(String codigo);
         Optional<Pais> findByNombreIgnoreCase(String nombre);
 
 }

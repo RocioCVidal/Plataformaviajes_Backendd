@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 @Data
 @AllArgsConstructor
-@Table(name = "Pais")
+@Table(name = "pais")
 public class Pais {
 
     @Id
