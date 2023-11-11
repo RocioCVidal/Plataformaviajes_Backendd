@@ -22,6 +22,8 @@ public abstract class Publicacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String tipo;
+
     private String titulo;
     private String descripcion;
 

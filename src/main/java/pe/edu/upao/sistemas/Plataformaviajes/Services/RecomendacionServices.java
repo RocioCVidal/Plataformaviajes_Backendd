@@ -25,6 +25,7 @@ public class RecomendacionServices {
     @Transactional
     public Recomendacion crearDesdeDTO(PublicacionDTO publicacionDTO){
         Recomendacion recomendacion = new Recomendacion();
+        recomendacion.setTipo(publicacionDTO.getTipo());
         recomendacion.setTitulo(publicacionDTO.getTitulo());
         recomendacion.setDescripcion(publicacionDTO.getDescripcion());
 

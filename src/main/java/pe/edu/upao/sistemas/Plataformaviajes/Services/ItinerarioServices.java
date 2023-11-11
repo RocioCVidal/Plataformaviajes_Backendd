@@ -30,6 +30,7 @@ public class ItinerarioServices {
 
     public Itinerario crearDesdeDTO(PublicacionDTO publicacionDTO){
         Itinerario itinerario = new Itinerario();
+        itinerario.setTipo(publicacionDTO.getTipo());
         itinerario.setTitulo(publicacionDTO.getTitulo());
         itinerario.setDescripcion(publicacionDTO.getDescripcion());
 

@@ -33,6 +33,7 @@ public class ExperienciaServices {
 
     public Experiencia crearDesdeDTO(PublicacionDTO publicacionDTO){
         Experiencia experiencia = new Experiencia();
+        experiencia.setTipo(publicacionDTO.getTipo());
         experiencia.setTitulo(publicacionDTO.getTitulo());
         experiencia.setDescripcion(publicacionDTO.getDescripcion());
 
