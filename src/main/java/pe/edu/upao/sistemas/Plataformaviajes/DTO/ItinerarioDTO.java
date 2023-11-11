@@ -4,19 +4,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class ExperienciaDTO {
+public class ItinerarioDTO {
     private Long id;
     private String titulo;
     private String descripcion;
-    private LocalDate fecha;
-    private LocalTime hora;
-    private int numLikes;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    private int duracion;
     private String lugar;
     private String pais;
-    private List<String> imagenes; // Suponiendo que solo quieres las URLs de las imágenes
+    private List<String> actividades; // Suponiendo que solo quieres las descripciones de las actividades
 }

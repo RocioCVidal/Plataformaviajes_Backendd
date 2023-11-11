@@ -5,18 +5,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
+
 @Table (name = "usuario")
 
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUsuario;
+    private long id;
 
     @Column (nullable = false)
     private String nombre;
@@ -30,7 +32,7 @@ public class Usuario {
 
     @Temporal(TemporalType.DATE)
     @Column (nullable = false)
-    private Date fecha_nacimiento;
+    private LocalDate fechaNacimiento;
 
     private String descripcion;
 
@@ -41,8 +43,18 @@ public class Usuario {
     @Column (nullable = false)
     private String contrasena;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paisOrigen_codigo", nullable = false)
+    @JsonIgnore
+    private Pais paisOrigen;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "paisVive_codigo", nullable = false)
+    @JsonIgnore
+    private Pais paisVive;
+
     @Enumerated(EnumType.STRING)
-    private TipoViajero tipo_viajero;
+    private TipoViajero tipoViajero;
 
     private String fotoPerfilUrl;
 

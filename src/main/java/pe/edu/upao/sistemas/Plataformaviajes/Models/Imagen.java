@@ -1,27 +1,29 @@
 package pe.edu.upao.sistemas.Plataformaviajes.Models;
-
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @Entity
-@Table(name = "imagenes")
+@AllArgsConstructor
 public class Imagen {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idImagen;
+    private Long id;
 
     private String url;
 
-    // Relación inversa, muchas imágenes corresponden a una experiencia
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "experiencia_id") // Esto debe coincidir con la clave primaria de la entidad Experiencia.
-    private Experiencia experiencia;
+    @ManyToOne
+    @JoinColumn(name = "experiencia_id")
+    private Experiencia experiencia; // Referencia a la experiencia asociada
 
-    // Lombok genera los constructores, getters y setters.
+    // Constructor por defecto necesario para JPA
+    public Imagen() {
+    }
+
+    public Imagen(String url, Experiencia experiencia) {
+        this.url = url;
+        this.experiencia = experiencia;
+    }
 }

@@ -10,6 +10,6 @@ import lombok.Data;
 public class LoginDTO {
     private String correo;
     private String contrasena;
-
-    // Getters y setters
+// Getters y setters
 }
+
