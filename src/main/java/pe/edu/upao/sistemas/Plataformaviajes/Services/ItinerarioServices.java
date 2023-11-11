@@ -9,6 +9,9 @@ import pe.edu.upao.sistemas.Plataformaviajes.Repository.LugarRepository;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.PaisRepository;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.UsuarioRepository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,6 +61,9 @@ public class ItinerarioServices {
                 .map(descripcion -> new Actividad(descripcion, itinerario))
                 .collect(Collectors.toList());
         itinerario.setActividades(actividades);
+
+        itinerario.setFecha(LocalDate.from(LocalDateTime.now()));
+        itinerario.setHora(LocalTime.from(LocalDateTime.now()));
 
         return itinerarioRepository.save(itinerario);
     }

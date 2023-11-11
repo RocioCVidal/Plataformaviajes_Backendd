@@ -7,6 +7,10 @@ import pe.edu.upao.sistemas.Plataformaviajes.Exception.EntidadNoEncontradaExcept
 import pe.edu.upao.sistemas.Plataformaviajes.Models.*;
 import pe.edu.upao.sistemas.Plataformaviajes.Repository.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Service
 public class RecomendacionServices {
 
@@ -44,6 +48,9 @@ public class RecomendacionServices {
        Pais pais = paisRepository.findByNombreIgnoreCase(publicacionDTO.getNombrePais())
                .orElseThrow(() -> new EntidadNoEncontradaException("No hay el pais"));
        recomendacion.setPais(pais);
+
+        recomendacion.setFecha(LocalDate.from(LocalDateTime.now()));
+        recomendacion.setHora(LocalTime.from(LocalDateTime.now()));
 
         return recomendacionRepository.save(recomendacion);
     }
